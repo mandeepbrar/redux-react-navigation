@@ -1,10 +1,10 @@
 {
   "name": "redux-react-navigation",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "Redux wrapper on react navigation",
   "main": "dist/index.js",
   "scripts": {
-    "dist": "rimraf dist/* && babel . --out-dir dist --ignore node_modules,dist",
+    "dist": "rimraf dist/* && babel src --out-dir dist --ignore node_modules,dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,12 +30,12 @@
     "glob": "^7.0.0",
     "minimist": "^1.2.0",
     "open": "0.0.5",
-    "rimraf": "^2.4.3"
-  },
-  "dependencies": {
+    "rimraf": "^2.4.3",
     "react-navigation": "^1.0.0-beta.11",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2"
+  },
+  "dependencies": {
   },
   "homepage": "https://github.com/mandeepbrar/redux-react-navigation#readme"
 }

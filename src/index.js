@@ -7,7 +7,6 @@ import { StackNavigator, addNavigationHelpers } from 'react-navigation';
 
 class NavigationManager {
   constructor(props) {
-    console.log("navigation manager constructor")
     this.props = props
     this.processRoutes = this.processRoutes.bind(this);
     this.getComponent = this.getComponent.bind(this);
@@ -45,7 +44,6 @@ class NavigationManager {
   getReducer(){
     let manager = this;
     return (state = manager.initialState, action) => {
-      console.log("action **********", action, state)
       switch (action.type) {
         case 'Navigation/NAVIGATE':
             const nextState = {
@@ -57,7 +55,7 @@ class NavigationManager {
             nextState.routeStore = manager.getRouteStore(action.routeName, action);
             return nextState;
         default:
-          let routeStore = manager.getRouteStore(action.routeName, action, state.routeStore)
+          let routeStore = manager.getRouteStore(state.routeName, action, state.routeStore)
           if(routeStore == state.routeStore) {
             return state
           } else {
@@ -96,7 +94,6 @@ class NavigationManager {
         this.routeStoreReducer = combineReducers(route.reducers)
       }
       if(this.routeStoreReducer) {
-        console.log("route store reducer working =============", action)
         return this.routeStoreReducer(state, action)
       }
     }
@@ -118,7 +115,6 @@ class NavigationRenderer extends React.Component {
 
 
 const mapStateToProps = (state, props) => {
-  console.log("mapping state ", state, props)
   return {
     navState: state.router.navState,
     navigator: props.navigator

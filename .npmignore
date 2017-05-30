@@ -1,0 +1,10 @@
+src/
+build/
+cfg/
+node_modules/
+bower_components/
+dist/index.js.map
+.git
+.*
+webpack.config.js
+server.js

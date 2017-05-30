@@ -28,7 +28,6 @@ var NavigationManager = function () {
   function NavigationManager(props) {
     _classCallCheck(this, NavigationManager);
 
-    console.log("navigation manager constructor");
     this.props = props;
     this.processRoutes = this.processRoutes.bind(this);
     this.getComponent = this.getComponent.bind(this);
@@ -93,7 +92,6 @@ var NavigationManager = function () {
         var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : manager.initialState;
         var action = arguments[1];
 
-        console.log("action **********", action, state);
         switch (action.type) {
           case 'Navigation/NAVIGATE':
             var nextState = {
@@ -105,7 +103,7 @@ var NavigationManager = function () {
             nextState.routeStore = manager.getRouteStore(action.routeName, action);
             return nextState;
           default:
-            var routeStore = manager.getRouteStore(state.routeStore, action);
+            var routeStore = manager.getRouteStore(state.routeName, action, state.routeStore);
             if (routeStore == state.routeStore) {
               return state;
             } else {
@@ -143,6 +141,8 @@ var NavigationManager = function () {
   }, {
     key: 'getRouteStore',
     value: function getRouteStore(routeName, action) {
+      var state = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
       var route = this.getRoute(routeName);
       if (route) {
         if (route.reducer) {
@@ -151,11 +151,10 @@ var NavigationManager = function () {
           this.routeStoreReducer = (0, _redux.combineReducers)(route.reducers);
         }
         if (this.routeStoreReducer) {
-          console.log("route store reducer working =============", action);
-          return this.routeStoreReducer({}, action);
+          return this.routeStoreReducer(state, action);
         }
       }
-      return {};
+      return state;
     }
   }]);
 
@@ -186,7 +185,6 @@ var NavigationRenderer = function (_React$Component2) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state, props) {
-  console.log("mapping state ", state, props);
   return {
     navState: state.router.navState,
     navigator: props.navigator
