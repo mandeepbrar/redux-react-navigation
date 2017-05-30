@@ -16,15 +16,15 @@ class NavigationManager {
     this.getReducer = this.getReducer.bind(this);
     this.connect = this.connect.bind(this)
     this.processRoutes();
-    switch (props.navigatorType) {
+    switch (props.type) {
         case 'drawer':
-          this.navigator = DrawerNavigator(this.reactNavigationRoutes, props.navigatorConfig)
+          this.navigator = DrawerNavigator(this.reactNavigationRoutes, props.config)
         break;
         case 'tab':
-          this.navigator = TabNavigator(this.reactNavigationRoutes, props.navigatorConfig)
+          this.navigator = TabNavigator(this.reactNavigationRoutes, props.config)
         break;
         default:
-          this.navigator = StackNavigator(this.reactNavigationRoutes, props.navigatorConfig)
+          this.navigator = StackNavigator(this.reactNavigationRoutes, props.config)
     }
 
     this.initialState = {

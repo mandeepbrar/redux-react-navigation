@@ -37,15 +37,15 @@ var NavigationManager = function () {
     this.getReducer = this.getReducer.bind(this);
     this.connect = this.connect.bind(this);
     this.processRoutes();
-    switch (props.navigatorType) {
+    switch (props.type) {
       case 'drawer':
-        this.navigator = (0, _reactNavigation.DrawerNavigator)(this.reactNavigationRoutes, props.navigatorConfig);
+        this.navigator = (0, _reactNavigation.DrawerNavigator)(this.reactNavigationRoutes, props.config);
         break;
       case 'tab':
-        this.navigator = (0, _reactNavigation.TabNavigator)(this.reactNavigationRoutes, props.navigatorConfig);
+        this.navigator = (0, _reactNavigation.TabNavigator)(this.reactNavigationRoutes, props.config);
         break;
       default:
-        this.navigator = (0, _reactNavigation.StackNavigator)(this.reactNavigationRoutes, props.navigatorConfig);
+        this.navigator = (0, _reactNavigation.StackNavigator)(this.reactNavigationRoutes, props.config);
     }
 
     this.initialState = {

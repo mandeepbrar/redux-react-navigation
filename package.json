@@ -1,6 +1,6 @@
 {
   "name": "redux-react-navigation",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Redux wrapper on react navigation",
   "main": "dist/index.js",
   "scripts": {
