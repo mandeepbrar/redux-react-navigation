@@ -57,7 +57,7 @@ class NavigationManager {
             nextState.routeStore = manager.getRouteStore(action.routeName, action);
             return nextState;
         default:
-          let routeStore = manager.getRouteStore(state.routeStore, action)
+          let routeStore = manager.getRouteStore(action.routeName, action, state.routeStore)
           if(routeStore == state.routeStore) {
             return state
           } else {
@@ -87,7 +87,7 @@ class NavigationManager {
   }
 
   //change redux state as per route reducers
-  getRouteStore(routeName, action) {
+  getRouteStore(routeName, action, state={}) {
     let route = this.getRoute(routeName);
     if(route) {
       if(route.reducer) {
@@ -97,10 +97,10 @@ class NavigationManager {
       }
       if(this.routeStoreReducer) {
         console.log("route store reducer working =============", action)
-        return this.routeStoreReducer({}, action)
+        return this.routeStoreReducer(state, action)
       }
     }
-    return {};
+    return state;
   }
 }
 
