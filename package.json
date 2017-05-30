@@ -1,0 +1,41 @@
+{
+  "name": "redux-react-navigation",
+  "version": "0.1.0",
+  "description": "Redux wrapper on react navigation",
+  "main": "dist/index.js",
+  "scripts": {
+    "dist": "rimraf dist/* && babel . --out-dir dist --ignore node_modules,dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mandeepbrar/redux-react-navigation.git"
+  },
+  "author": "Mandeep Singh Brar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mandeepbrar/redux-react-navigation/issues"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.0.0",
+    "babel-eslint": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-es2015": "^6.0.15",
+    "babel-preset-react": "^6.0.15",
+    "eslint": "^2.2.0",
+    "eslint-loader": "^1.0.0",
+    "eslint-plugin-react": "^5.0.0",
+    "glob": "^7.0.0",
+    "minimist": "^1.2.0",
+    "open": "0.0.5",
+    "rimraf": "^2.4.3"
+  },
+  "dependencies": {
+    "react-navigation": "^1.0.0-beta.11",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2"
+  },
+  "homepage": "https://github.com/mandeepbrar/redux-react-navigation#readme"
+}
