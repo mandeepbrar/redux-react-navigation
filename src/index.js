@@ -2,7 +2,7 @@ import React from 'react';
 import {combineReducers} from 'redux';
 import {Provider} from 'react-redux'
 import { connect } from 'react-redux';
-import { StackNavigator, addNavigationHelpers } from 'react-navigation';
+import { TabNavigator, DrawerNavigator, StackNavigator, addNavigationHelpers } from 'react-navigation';
 
 
 class NavigationManager {
@@ -16,7 +16,17 @@ class NavigationManager {
     this.getReducer = this.getReducer.bind(this);
     this.connect = this.connect.bind(this)
     this.processRoutes();
-    this.navigator = StackNavigator(this.reactNavigationRoutes)
+    switch (props.navigatorType) {
+        case 'drawer':
+          this.navigator = DrawerNavigator(this.reactNavigationRoutes, props.navigatorConfig)
+        break;
+        case 'tab':
+          this.navigator = TabNavigator(this.reactNavigationRoutes, props.navigatorConfig)
+        break;
+        default:
+          this.navigator = StackNavigator(this.reactNavigationRoutes, props.navigatorConfig)
+    }
+
     this.initialState = {
       routeName: this.props.defaultRoute,
       data:{},
