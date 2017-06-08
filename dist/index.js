@@ -65,24 +65,7 @@ var NavigationManager = function () {
   }, {
     key: 'getComponent',
     value: function getComponent(routeName, route) {
-      return function (_React$Component) {
-        _inherits(_class, _React$Component);
-
-        function _class() {
-          _classCallCheck(this, _class);
-
-          return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
-        }
-
-        _createClass(_class, [{
-          key: 'render',
-          value: function render() {
-            return route.component(route, this.props);
-          }
-        }]);
-
-        return _class;
-      }(_react2.default.Component);
+      return route.component(route);
     }
   }, {
     key: 'getNavigator',
@@ -171,8 +154,8 @@ var NavigationManager = function () {
   return NavigationManager;
 }();
 
-var NavigationRenderer = function (_React$Component2) {
-  _inherits(NavigationRenderer, _React$Component2);
+var NavigationRenderer = function (_React$Component) {
+  _inherits(NavigationRenderer, _React$Component);
 
   function NavigationRenderer() {
     _classCallCheck(this, NavigationRenderer);

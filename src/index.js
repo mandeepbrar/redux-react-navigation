@@ -39,11 +39,7 @@ class NavigationManager {
     this.store = store
   }
   getComponent(routeName, route) {
-    return class extends React.Component {
-      render() {
-        return route.component(route, this.props)
-      }
-    }
+    return route.component(route)
   }
   getNavigator() {
     return <NavigationRendererWithState navigator={this.navigator}/>
